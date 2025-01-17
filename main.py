@@ -52,7 +52,7 @@ def process_words_sentences(words, book_dir):
 
         if all_sentences:
             save_sentences_to_markdown(word, all_sentences)
-            print(f"\n包含单词 '{word}' 的句子已保存至 'output/{word}/{word}.md'")
+            print(f"\n包含单词 '{word}' 的句子已保存至 'output/{word}.md'")
             results.append(word)
         else:
             print(f"没有找到包含单词 '{word}' 的句子")
@@ -108,7 +108,7 @@ def show_menu():
 
 def main():
     """主函数"""
-    book_dir = r"S:\PythonProject\english-word-audio-download\data"  # 可以根据实际情况修改路径
+    book_dir = r"S:\PythonProject\english-word-audio-download\data"
     
     while True:
         choice = show_menu()
