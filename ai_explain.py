@@ -31,13 +31,17 @@ def analyze_word_usage(word, sentences):
     # 构建提示词
     prompt = f"""
             # Role
-            根据用户输入的英文单词"{word}"开展图像化记忆
+            Develop visual memory techniques for the English word "{word}"
             =========
-            # Object
-            要求：配上关键词与图像助记法，但不要直接告知我该单词的中文含义，要把它的含义融入助记法之中。
+            # Objective
+            Requirements: Provide keywords and visual mnemonics, but don't directly reveal the Chinese meaning. Instead, incorporate the meaning into the mnemonic technique.
             ======
             # Rules
-            条件：1）被拆解的关键词要足够简单且基础；2）图像需要富有戏剧性、夸张、具体且生动。3）其中文含义必须被额外标记出来，比如加粗或是用括号框住。4) 仿照 Example 中的示例输出
+            Conditions: 
+            1) The broken-down keywords must be simple and basic
+            2) The imagery should be dramatic, exaggerated, specific, and vivid
+            3) The Chinese meaning must be specially marked (e.g., in bold or within brackets)
+            4) Follow the format shown in the Example section
             =======
             # Example：            
             - 英语：justice
@@ -54,7 +58,7 @@ def analyze_word_usage(word, sentences):
         response = client.chat.completions.create(
             model="deepseek-chat",
             messages=[
-                {"role": "system", "content": "你是一位可视化专家，擅长将抽象的文字转换为图像化帮助学生记忆单词。"},
+                {"role": "system", "content": "You are a visualization expert, skilled at converting abstract words into imagery to help students memorize vocabulary."},
                 {"role": "user", "content": prompt}
             ],
             stream=False
