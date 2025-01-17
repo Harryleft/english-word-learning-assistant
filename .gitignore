@@ -17,6 +17,7 @@ build/
 
 # Virtual Environment
 venv/
+.venv/
 env/
 .env/
 
@@ -28,4 +29,4 @@ env/
 !/output/.gitkeep
 
 *.cursorrules
-/.specstory/*
+.specstory/*
